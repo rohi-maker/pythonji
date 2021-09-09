@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{params['owner']}}</h1>
+                            <span class="subheading">{{params['tagline']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+
+
+    <!-- form to add posts -->
+<form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/addit" method="post">
+                                <div class="form-floating">
+                                    <input class="form-control" id="name" type="text" placeholder="Enter Title of your post.." data-sb-validations="required" name="title"/>
+                                    <label for="name">Title of Post</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title of post is required</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="text" type="text" placeholder="Enter tagline of your post" data-sb-validations="required,email" name="tagline"/>
+                                    <label for="email">Tagline of your post</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">A tagline of your post is required</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="text" type="text" placeholder="Enter the post slug" data-sb-validations="required" name="slug"/>
+                                    <label for="phone">Post Slug</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="text" placeholder="Enter the content of your post" style="height: 12rem" data-sb-validations="required" name="content"></textarea>
+                                    <label for="message">Post Content</label>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                </div>
+
+<td><button class="btn btn-primary text-uppercase">ADD NOW</button></td>
+
+
+
+      </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        {% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>ADMIN PANNAL</h1>
+                            <span class="subheading">ADD AND DELETE POSTS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+<!-- Table of posts -->
+<h> ALWAYS REMEMBER TO LOGOUT </h>
+<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/logout">LOGOUT→</a></div>
+<td><button class="btn btn-primary text-uppercase"><a href="/addit" >ADD POST</button></td>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Serial No.</th>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- looop here -->
+    {% for post in posts %}
+      <tr>
+        <td>{{post.sn}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.slug}}</td>
+        <td>{{post.date}}</td>
+        <td><button  id="submitButton" type="submit"><a class="btn btn-primary text-uppercase" href="/delete/{{post.slug}}">Delete</button></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+    </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        {% endblock %}

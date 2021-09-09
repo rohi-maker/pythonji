@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{params['owner']}}</h1>
+                            <span class="subheading">SEARCH POST BY TITLE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <!--Search form will be here--> 
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/searchpost" method="post">
+                                <div class="form-floating">
+                                    <input class="form-control" id="name" type="text" placeholder="Enter the title of the post to be searched...." data-sb-validations="required" name="title"/>
+                                    <label for="name">Enter Title of post to be searched..</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title of the post to be searched is required</div>
+                                </div>
+                               <button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Search Now</button>
+
+            </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        {% endblock %}
